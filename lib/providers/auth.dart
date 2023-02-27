@@ -8,7 +8,7 @@ class Auth with ChangeNotifier {
   String? _userId;
 
   Future<void> signup(String email, String password) async {
-    // fill your google api key
+    // fill your google api key which will be available in firebase project seetings of your's
     final url = Uri.parse('');
 
     var response = await http.post(url,
