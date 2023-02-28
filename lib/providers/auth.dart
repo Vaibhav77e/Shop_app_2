@@ -10,6 +10,7 @@ class Auth with ChangeNotifier {
 
   Future<void> authenicator(
       String email, String password, String urlSegment) async {
+    // fill your google api key which will be available in firebase project seetings of your's
     final url = Uri.parse(
         'https://identitytoolkit.googleapis.com/v1/accounts:$urlSegment?key=');
     try {
