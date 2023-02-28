@@ -42,6 +42,9 @@ class ProvidersProduct with ChangeNotifier {
     // ),
   ];
 
+  final String authToken;
+  ProvidersProduct(this.authToken, this._items);
+
   // var _showFav = false;
   List<Product> get items {
     //copy will returned
@@ -74,8 +77,8 @@ class ProvidersProduct with ChangeNotifier {
 //***another way of adding filtering logic lecture 201 */
 
   Future<void> fetchAndSetProducts() async {
-    const url =
-        'https://shop-app-40ff1-default-rtdb.asia-southeast1.firebasedatabase.app/products.json';
+    final url =
+        'https://shop-app-40ff1-default-rtdb.asia-southeast1.firebasedatabase.app/products.json?auth=$authToken';
     try {
       final response = await http.get(Uri.parse(url));
       final extractedData = json.decode(response.body) as Map<String, dynamic>;
